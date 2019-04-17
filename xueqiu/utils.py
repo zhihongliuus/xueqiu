@@ -60,7 +60,7 @@ def get_cookies(domain: str = 'xueqiu', lazy: bool = True):
         os.makedirs(os.path.dirname(api.cookie_file), exist_ok=True)
     return cj
 
-def get_session(sess = '', host: str = api.prefix, expire: int = 3600*24*7):
+def get_session(sess = '', host: str = api.prefix, expire: int = 0):
     sess = sess or requests_cache.CachedSession(expire_after=expire)
     sess.headers['Origin'] = host
     sess.headers['Referer'] = host
